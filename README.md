@@ -122,4 +122,5 @@ classifier | F1_macro@5-fold-cv | Precision_macro@5-fold-cv | Recall_macro@5-fol
  - load a database dump
     `./bin/neo4j-admin dump --database=neo4j --from=neo4j.dump`
  
-- username - neo4j, password=123/1234 
+- username - neo4j, password=123/1234
+${{ secrets.password }} 
