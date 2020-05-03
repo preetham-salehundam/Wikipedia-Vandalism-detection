@@ -1,5 +1,8 @@
 > Vandalism is a deliberate damage to a public property. Wiki’s are publicly owned and managed by the community and vandalism is a big threat to these resources. Vandalism on public platforms can be identified in various forms, especially on Wikipedia. Wikipedia defines vandalism as "any addition, removal, or change of content made in a deliberate attempt to compromise the integrity of Wikipedia". Majority of the vandalism reported occurs when a user deliberately makes incorrect changes to the content of a page, however this type of very tough to detect and we have it listed as our future work to identify such edits. In this work, we have attempted to identify page content vandalism using machine learning and deep learning techniques. However due to limited data and restrictions of the Mediawiki API the problem still remains unsolved.
 
+# Dataset
+[PAN Wikipedia Vandalism Detection 2010 @ CLEF](https://webis.de/data/pan-wvc-10.html)
+
 # Graph data Model
 
 ![datamodel](./misc/graph.png)
