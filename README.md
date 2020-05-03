@@ -3,6 +3,17 @@
 # Dataset
 [PAN Wikipedia Vandalism Detection 2010 @ CLEF](https://webis.de/data/pan-wvc-10.html)
 
+# files
+
+| Script | Purpose |
+|--|--|
+| Data_preprocessing.py | computes the hand-crafted features mentioned in this [paper]([https://arxiv.org/abs/1210.5560v1](https://arxiv.org/abs/1210.5560v1))
+|augment_features.py|This file augments the precomputed features using pyspark and add wordcount and size of article|
+|build_network.py| This script will build a networkx graph from the data and serializes it to graph.json  this also writes the graph to neo4j database |
+|generate_embeddings.py| generate node2vec embeddings |
+|stellar_graphsage.py| apply graphsage algorithm|
+|evaluate.py| evaluate the classification task|
+
 # Graph data Model
 
 ![datamodel](./misc/graph.png)
