@@ -1,9 +1,9 @@
 > Vandalism is a deliberate damage to a public property. Wiki’s are publicly owned and managed by the community and vandalism is a big threat to these resources. Vandalism on public platforms can be identified in various forms, especially on Wikipedia. Wikipedia defines vandalism as "any addition, removal, or change of content made in a deliberate attempt to compromise the integrity of Wikipedia". Majority of the vandalism reported occurs when a user deliberately makes incorrect changes to the content of a page, however this type of very tough to detect and we have it listed as our future work to identify such edits. In this work, we have attempted to identify page content vandalism using machine learning and deep learning techniques. However due to limited data and restrictions of the Mediawiki API the problem still remains unsolved.
 
-# Dataset
+## Dataset
 [PAN Wikipedia Vandalism Detection 2010 @ CLEF](https://webis.de/data/pan-wvc-10.html)
 
-# Files
+## Files
 
 | Script | Purpose |
 |--|--|
@@ -14,7 +14,7 @@
 |5_stellar_graphsage.py| apply graphsage algorithm|
 |6_evaluate.py| evaluate the classification task|
 
-# Graph data Model
+## Graph data Model
 
 ![datamodel](./misc/graph.png)
     
@@ -145,3 +145,27 @@ classifier | F1_macro@5-fold-cv | Precision_macro@5-fold-cv | Recall_macro@5-fol
 
 - Use observables
 [Disjoint Force-Directed Graph](https://observablehq.com/d/c96a50d1e20cecee)
+
+## LICENSE
+
+MIT License
+
+Copyright (c) 2020 Preetham Salehundam
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
