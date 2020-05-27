@@ -149,7 +149,7 @@ classifier | F1_macro@5-fold-cv | Precision_macro@5-fold-cv | Recall_macro@5-fol
 ## Literature Survey
 ### References:
 1. Hamilton, Will, Zhitao Ying, and Jure Leskovec. "Inductive representation learning on large graphs." Advances in neural information processing systems. 2017. <!-- cited by 1417 nips.cc h-index 169 -->
-2. Wu, Zonghan, et al. "A comprehensive survey on graph neural networks." IEEE Transactions on Neural Networks and Learning Systems (2020). <!-- cited by 289 ieee.org
+2. Wu, Zonghan, et al. "A comprehensive survey on graph neural networks." IEEE Transactions on Neural Networks and Learning Systems (2020). <!-- cited by 289 ieee.org -->
 3. Monti, Federico, et al. "Geometric deep learning on graphs and manifolds using mixture model cnns." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2017. <!-- cited by 525, IEEE computer vision, h-score- 245-->
 4. Grover, Aditya, and Jure Leskovec. "node2vec: Scalable feature learning for networks." Proceedings of the 22nd ACM SIGKDD international conference on Knowledge discovery and data mining. 2016. <!-- cited by 3004, ACM -->
 5. Leskovec, Jure, Jon Kleinberg, and Christos Faloutsos. "Graphs over time: densification laws, shrinking diameters and possible explanations." Proceedings of the eleventh ACM SIGKDD international conference on Knowledge discovery in data mining. 2005. <!--  cited by 2426 -->
