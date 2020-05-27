@@ -141,13 +141,13 @@ classifier | F1_macro@5-fold-cv | Precision_macro@5-fold-cv | Recall_macro@5-fol
  
 - username - neo4j, password=123/1234 
 
-## graph visualization 
+## Graph visualization 
 
 - Use observables
 [Disjoint Force-Directed Graph](https://observablehq.com/d/c96a50d1e20cecee)
 
 ## Literature Survey
-### REFERENCES:
+### Referances:
 1. Hamilton, Will, Zhitao Ying, and Jure Leskovec. "Inductive representation learning on large graphs." Advances in neural information processing systems. 2017. <!-- cited by 1417 nips.cc h-index 169 -->
 2. Wu, Zonghan, et al. "A comprehensive survey on graph neural networks." IEEE Transactions on Neural Networks and Learning Systems (2020). <!-- cited by 289 ieee.org
 3. Monti, Federico, et al. "Geometric deep learning on graphs and manifolds using mixture model cnns." Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition. 2017. <!-- cited by 525, IEEE computer vision, h-score- 245-->
