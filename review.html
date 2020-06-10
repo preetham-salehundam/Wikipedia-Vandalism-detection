@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vandalism detection in Wikipedia</title>
+</head>
+<style>
+    .container {
+        display: flex;
+        flex-direction: column;
+        width:90%;
+    }
+    .justify{
+        text-align:justify;
+    }
+    .no-bullets {
+        list-style: none;
+    }
+</style>
+<body>
+<!-- UIkit CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/css/uikit.min.css" />
+
+<!-- UIkit JS -->
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/uikit@3.5.3/dist/js/uikit-icons.min.js"></script>
+<div class="uk-container">
+<article class="uk-article uk-text-justify">
+    <h1 class="uk-article-title uk-text-center">Review on Wikipedia Vandalism Detection: Combining Natural Language, Metadata, and Reputation Features</h1>
+    <p class="uk-article-meta uk-text-center">written by <a href="https://preetham-salehundam.github.io">Preetham Salehundam</a></p>
+    <p>Wikipedia is a collection of publicly available Wiki’s. These Wiki’s can be edited by anyone on the internet. Due to this nature of Wikipedia the chances of vandalism are high. These edits are made in bad faith. In this paper, an integrated model using spatio-temporal analysis of metadata, Reputation based systems like WikiTrust, and natural language processing techniques is proposed and claims that it has surpassed the performing of contemporary techniques. Contemporary approaches include using bots, that use rule-based checks to identify vandalism, statistics and machine learning techniques. In this paper, the features like metadata of the edits, Text of the edit, Reputation of the editor and language are used to develop a model that outperforms the state-of-the-art models. Vandalism detection can be of immediate detection or historical detection.</p>
+    <p>The main idea proposed in this paper is to combine multiple models to outperform individual models. By combining the features used in various models, a model with an AUC score of 0.96 is achieved for immediate detection and an AUC score of 0.97 is achieved on historical edits.</p>
+    <p class="uk-text-lead">Strengths:</p>
+    <p>Detailed explanation of the features and extensive related work study is presented in this paper. Reporting AUC values is a good choice when compared to F1 score or other metrics. This paper establishes a relation between reverts and vandalism. The reverted updates are more likely to be vandalized.</p>
+    <p class="uk-text-lead">Weakness:</p>
+    <p> The correlation within features or feature importance is not evaluated. There could be highly correlated features which can be dropped, and this can improve the performance. No Mention of which machine learning algorithm is used. There is no novelty in this paper, the paper recommends combining all the approaches which in my opinion is not a great contribution.</p>
+    <p class="uk-text-lead">Conclusion:</p>
+    <p>This paper provides good insights about the severity of vandalism and its effect on Wikipedia. Interesting correlation between the reversion of a commit and vandalism is unique. It is very elusive in explaining the features; however, it failed to mention the machine learning algorithm used and no mention of dataset or feature extraction techniques used is discussed.</p>
+
+</article>
+
+</div>
+
+</body>
+</html>
