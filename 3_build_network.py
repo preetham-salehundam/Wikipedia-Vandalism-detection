@@ -20,6 +20,10 @@ import random
 
 
 def get_user_article_relation(data_file):
+    """
+    :param data_file:
+    :return:
+    """
     raw_data = pd.read_csv(data_file)
     if "class" not in raw_data.columns:
         raw_data['class'] = raw_data.loc[raw_data["vulgar_word_ratio"] != 0] = "vandalism"
@@ -31,6 +35,10 @@ def get_user_article_relation(data_file):
 
 
 def create_network(data):
+    """
+    :param data:
+    :return:
+    """
     graph = nx.Graph()
     for _, row in tqdm(data.iterrows(), ascii=True, desc="processing rows"):
         graph.add_node(row.editid, label="editor", feature=[row.character_diversity, row.digit_ratio,
@@ -43,6 +51,10 @@ def create_network(data):
 
 
 def shortcircuit(data):
+    """
+    :param data:
+    :return:
+    """
     graph = nx.Graph()
     for _, row in tqdm(data.iterrows(), ascii=True, desc="processing rows"):
         graph.add_node(row.editid, label="editor", feature=[row.character_diversity, row.digit_ratio,
@@ -64,6 +76,10 @@ def shortcircuit(data):
     return graph
 
 def create_dummy_network(data):
+    """
+    :param data:
+    :return:
+    """
     print("creating network with 0 feature vec")
     graph = nx.Graph()
     BELONGS_TO = Relationship.type("BELONGS_TO")
@@ -116,11 +132,8 @@ def create_dummy_network(data):
 
 
 if __name__ == "__main__":
-    # do something
 
-    #data = get_user_article_relation("incomplete.csv")
     data = pd.read_csv("data/category_data_new.csv")
-    #data = pd.read_csv("category_data.csv")
     data = data.fillna(0)
     if 'category' in data.columns:
         data.loc[data["category"] == 0, "category"] = "unknown"
@@ -129,14 +142,13 @@ if __name__ == "__main__":
         print({category:cat_code for category, cat_code in zip(data["category"], data["category"].cat.codes)})
     if "character_distribution" in data.columns:
         data = data.drop(["character_distribution"], axis=1)
-    #data = data.dropna()
     data = data[~data.editid.isin(data.articleid)]
     print(data.info())
-    #graph = create_dummy_network(data)
     graph = shortcircuit(data)
     g = StellarGraph.from_networkx(graph, node_features="feature")
     print(g.info())
     filename="data/graph.json"
     with open(filename, "w+") as fd:
         fd.write(json.dumps(json_graph.node_link_data(graph)))
-    #shutil.copyfile(filename, "/Users/preetham/Downloads/disjoint-force-directed-graph/files/"+filename)
+
+    print("Network generation complete!!")

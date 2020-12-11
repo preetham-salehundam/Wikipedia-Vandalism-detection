@@ -26,25 +26,10 @@ import pandas as pd
 
 from node2vec import Node2Vec
 
-
-# class EarlyStop(callbacks.CallBack):
-#     def on_epoch_end(self, batch, logs=None):
-#         print(logs["loss"], "test")
-
-
-
-
 if __name__ == "__main__":
 
-    # do something
     data = json.loads(open("data/graph_cat.json").read())
     graph = nx.node_link_graph(data)
-    # print(graph)
-    # data = {}
-    # for node in graph.nodes:
-    #
-    #     data[node] = np.zeros(shape=100,)
-    #graph = graph.to_undirected()
     G = StellarGraph.from_networkx(graph, node_features="feature")
     print(G.node_types)
     G.check_graph_for_ml()
@@ -91,38 +76,6 @@ if __name__ == "__main__":
     print(model.layers)
     emb_model = Model(inputs=x_in, outputs=model.layers[-4].output)
     embs=emb_model.predict_generator(generator=all_gen)
-    #
-    # node_subject = all_labels
-    # all_node_ids = train_ids + train_ids
-    # all_node_ids =  np.array(all_node_ids).reshape(-1,1)
-
-    # X = embs.reshape(-1,32)
-    # if X.shape[1] > 2:
-    #     transform = TSNE  # PCA
-    #
-    #     trans = transform(n_components=2)
-    #     emb_transformed = pd.DataFrame(trans.fit_transform(X), index=all_node_ids)
-    #     emb_transformed["label"] = node_subject
-    # else:
-    #     emb_transformed = pd.DataFrame(X, index=all_node_ids)
-    #     emb_transformed = emb_transformed.rename(columns={"0": 0, "1": 1})
-    #     emb_transformed["label"] = node_subject
-    #
-    # alpha = 0.7
-    #
-    # fig, ax = plt.subplots(figsize=(7, 7))
-    # ax.scatter(
-    #     emb_transformed[0],
-    #     emb_transformed[1],
-    #     c=emb_transformed["label"].astype("category"),
-    #     cmap="jet",
-    #     alpha=alpha,
-    # )
-    # ax.set(aspect="equal", xlabel="$X_1$", ylabel="$X_2$")
-    # plt.title(
-    #     "{} visualization of GraphSAGE embeddings for cora dataset".format(transform.__name__)
-    # )
-    # plt.show()
 
     train_embs = embs[:5000]
     test_embs = embs[5000:]
@@ -137,43 +90,3 @@ if __name__ == "__main__":
     y_pred = np.where(test_probs > 0.5, 1, 0)
     print(lr.score(test_embs, test_probs))
 
-
-    #model.predict_generator(generator=generator)
-
-
-
-    # node2vec
-
-    # gen random walks
-    # biased_walk  = BiasedRandomWalk(G)
-    # #nodes = [str(id) for id in train_ids + test_ids]
-    # nodes= train_ids + test_ids
-    # print(nodes)
-    # walks=biased_walk.run(nodes= nodes ,p=0.5, n=3, length=10)
-    # model = Word2Vec(sentences=walks, size=128, window=10, min_count=0, sg=1, iter=1)
-    # #model.wv.save_word2vec_format("data.emb")
-    # ordered_vocab = [(term, voc.index, voc.count) for term, voc in model.wv.vocab.items()]
-    # ordered_vocab = sorted(ordered_vocab, key=lambda k: k[2])
-    # ordered_terms, term_indices, term_counts = zip(*ordered_vocab)
-    # word_vectors = pd.DataFrame(model.wv.syn0[term_indices, :], index=ordered_terms)
-    #
-    # # visualization
-    # trans  = TSNE(n_components=2, perplexity=10, n_iter_without_progress=10)
-    # emb_trans = pd.DataFrame(trans.fit_transform(word_vectors))
-    #
-    #
-    # alpha = 0.7
-    #
-    # fig, ax = plt.subplots(figsize=(14, 8,))
-    # ax.scatter(emb_trans[0], emb_trans[1] , c= np.hstack((train_labels.reshape(-1,) , test_labels.reshape(-1,))), cmap="jet", alpha=alpha)
-    # ax.set(xlabel="$X_1$", ylabel="$X_2$")
-    # plt.title('{} visualization of embeddings for tweeter dataset'.format(TSNE.__name__), fontsize=24)
-    # plt.show()
-    # pass
-
-    # n2v = Node2Vec(graph, dimensions=20, walk_length=30, num_walks=50, workers=4)
-    # model = n2v.fit(window=10, min_count=1, batch_words=4)
-    #
-    # model = RandomForestClassifier().fit()
-    # model.predict()
-    # print(confusion_matrix(y_pred, test_labels))

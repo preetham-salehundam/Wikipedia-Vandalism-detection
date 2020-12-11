@@ -23,7 +23,6 @@ import numpy as np
 
 
 if __name__ == "__main__":
-    #editor_article_df = pd.read_csv("final_merged.csv")
     data = json.loads(open("graph.json").read())
     graph = nx.node_link_graph(data)
     G = StellarGraph.from_networkx(graph)
@@ -80,7 +79,6 @@ if __name__ == "__main__":
     X_train, X_test = train_test_split(np.array(data_x), test_size=0.2, random_state=123)
     Y_train, Y_test = train_test_split(np.array(y), test_size=0.2, random_state=123)
 
-    # y = data["class"]
     rf = RandomForestClassifier(class_weight="balanced", max_depth=5, n_estimators=1)
     lr = LogisticRegression(class_weight="balanced", penalty="l2")
     print(cross_val_score(rf, data_x, y, scoring="f1_macro", cv=5))
@@ -106,6 +104,7 @@ if __name__ == "__main__":
         print("Logistic Regression-train,\n", classification_report(y_true=y_train, y_pred=y_pred_train))
         print("Logistic Regression-test,\n", classification_report(y_true=y_test, y_pred=y_pred_test))
 
+    # HARD LUCK WITH TSNE
     # visualization
     # trans  = TSNE(n_components=2, perplexity=10, n_iter_without_progress=10)
     # emb_trans = pd.DataFrame(trans.fit_transform(word_vectors))
@@ -116,7 +115,7 @@ if __name__ == "__main__":
     # fig, ax = plt.subplots(figsize=(14, 8,))
     # ax.scatter(emb_trans[0], emb_trans[1] , c= np.hstack((train_labels.reshape(-1,) , test_labels.reshape(-1,))), cmap="jet", alpha=alpha)
     # ax.set(xlabel="$X_1$", ylabel="$X_2$")
-    # plt.title('{} visualization of embeddings for tweeter dataset'.format(TSNE.__name__), fontsize=24)
+    # plt.title('{} visualization of embeddings for wiki dataset'.format(TSNE.__name__), fontsize=24)
     # plt.show()
-    pass
-    pass
+
+    print("embedding generation complete!!")

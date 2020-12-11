@@ -17,25 +17,6 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.model_selection import StratifiedKFold
 
-def preprocess_data(data, remove_outliers=True, normalize=False, seed=123):
-    #data = data.fillna(0)
-    # if normalize:
-    #     #data = (data - data.mean()) / data.std()
-    #     data= pd.DataFrame(StandardScaler().fit(data).transform(data), columns = data.columns)
-    # if remove_outliers:
-    #     cols = data.shape[-1]
-    #     clean_df = pd.DataFrame()
-    #     outliers_df = pd.DataFrame()
-    #     # for col in range(cols):
-    #     #     clean_df = data[~data.iloc[:, col].isin(get_outliers(data.iloc[:, col], 2))]
-    #     #     outliers_df = data[data.iloc[:, col].isin(get_outliers(data.iloc[:, col], 2))]
-    #     # logging.warning("\n {} datapoints are more than 2 std dev away from mean and removed".format(outliers_df))
-    # else:
-    #     clean_df = data
-    if normalize:
-        clean_df = StandardScaler().fit(data).transform(data)
-    train, test = train_test_split(np.array(data), test_size=0.2, random_state=seed)
-
 if __name__ == "__main__":
     data = pd.read_csv("combined_old.csv")
     data=data.drop(["editor", "newrevisionid", "oldrevisionid", "editid", "bad_words", "character_distribution"], axis=1) #"articleid","articletitle",
@@ -54,7 +35,6 @@ if __name__ == "__main__":
     X_train, X_test = train_test_split(np.array(data_x), test_size=0.2, random_state=123)
     Y_train, Y_test = train_test_split(np.array(y), test_size=0.2, random_state=123)
 
-    #y = data["class"]
     rf=RandomForestClassifier(class_weight="balanced", max_depth=5, n_estimators=1)
     lr = LogisticRegression(class_weight="balanced", penalty="l2")
     print(cross_val_score(rf, data_x,y, scoring="f1_macro", cv=5))
@@ -79,13 +59,3 @@ if __name__ == "__main__":
         y_pred_test = lr.predict(X_test)
         print("Logistic Regression-train,\n", classification_report(y_true=y_train, y_pred=y_pred_train))
         print("Logistic Regression-test,\n", classification_report(y_true=y_test, y_pred=y_pred_test))
-
-        # print(rf.score(X_test, Y_test))
-        # print(f1_score(y_pred, Y_test, average="macro"))
-        # print(f1_score(y_pred, Y_test, average="micro"))
-        # print(f1_score(y_pred, Y_test, average="weighted"))
-        # print(np.unique(Y_test, return_counts=True))
-        # print(f1_score(y_pred, Y_test, average="macro"))
-        # print(classification_report(y_true=Y_test, y_pred=y_pred))
-
-    #print(rf)
