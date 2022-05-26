@@ -60,7 +60,7 @@ six==1.14.0
 smart-open==1.10.0
 stellargraph==0.11.1
 tensorboard==2.1.1
-tensorflow==2.1.2
+tensorflow==2.7.2
 tensorflow-estimator==2.1.0
 termcolor==1.1.0
 tqdm==4.45.0
